@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: two-tier-demo
+  namespace: argocd
+spec:
+  project: demo-project
+  source:
+    repoURL: 'https://github.com/your-repo/two-tier-k8s-project.git'
+    targetRevision: HEAD
+    path: all
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: demo-namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
