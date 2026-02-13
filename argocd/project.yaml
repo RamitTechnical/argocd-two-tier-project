@@ -6,16 +6,17 @@ metadata:
 spec:
   description: Two-tier demo project with MySQL
   sourceRepos:
-    - '*'
+    - 'https://github.com/RamitTechnical/argocd-two-tier-project.git'
   destinations:
-    - namespace: demo-namespace
+    - namespace: chat-app
       server: https://kubernetes.default.svc
   clusterResourceWhitelist:
     - group: ""
       kind: PersistentVolumeClaim
-  namespaceResourceWhitelist:
     - group: ""
-      kind: ConfigMap
+      kind: Namespace
+  namespaceResourceWhitelist:
+    
     - group: ""
       kind: Secret
     - group: ""
@@ -26,7 +27,4 @@ spec:
       kind: Deployment
     - group: "apps"
       kind: ReplicaSet
-    - group: "batch"
-      kind: Job
-    - group: "batch"
-      kind: CronJob
+
