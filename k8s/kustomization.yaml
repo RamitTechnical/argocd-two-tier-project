@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - base/namespace.yaml       # must be first
+  - base/secret.yaml
+  - mongo-db/mongo-db-pv.yaml
+  - mongo-db/mongo-db-pvc.yaml
+  - mongo-db/mongodb-deployment.yaml
+  - mongo-db/mongodb-service.yaml
+  - backend/backend-deployment.yaml
+  - backend/backend-service.yaml
+  - frontend/frontend-deployment.yaml
+  - frontend/frontend-service.yaml
