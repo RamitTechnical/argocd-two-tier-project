@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 04-two-tier-demo
+  namespace: argocd
+spec:
+  project: demo-project
+  source:
+    repoURL: 'https://github.com/RamitTechnical/argocd-two-tier-project.git'
+    targetRevision: main
+    path: k8s/frontend
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: chat-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
