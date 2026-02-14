@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: two-tier-demo
+  name: 01-two-tier-demo
   namespace: argocd
 spec:
   project: demo-project
