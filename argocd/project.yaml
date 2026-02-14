@@ -12,11 +12,12 @@ spec:
       server: https://kubernetes.default.svc
   clusterResourceWhitelist:
     - group: ""
-      kind: PersistentVolumeClaim
+      kind: PersistentVolume
     - group: ""
       kind: Namespace
   namespaceResourceWhitelist:
-    
+    - group: ""
+      kind: PersistentVolumeClaim
     - group: ""
       kind: Secret
     - group: ""
