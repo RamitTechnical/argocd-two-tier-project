@@ -4,5 +4,5 @@ metadata:
   name: argocd-clusterrole
 rules:
   - apiGroups: [""]
-    resources: ["namespaces", "persistentvolumeclaims"]
+    resources: ["namespaces", "persistentvolume"]
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
